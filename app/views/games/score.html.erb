@@ -1,1 +1,10 @@
-<%=@message %>
+<div style="padding: 10px;">
+  <div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header"><%=@message %></div>
+    <div class="card-body text-dark">
+      <h5 class="card-title">First attempt <%=@score %></h5>
+      <p class="card-text">Total score<%=session[:score] %></p>
+      <%= link_to "Try again", new_path %>
+    </div>
+  </div>
+</div>

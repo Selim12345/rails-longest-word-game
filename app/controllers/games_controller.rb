@@ -14,12 +14,18 @@ class GamesController < ApplicationController
     if @word.chars.all? { |letter| @word.count(letter) <= params[:letters].split(" ").count(letter) }
       if json['found'] == true
         @message = "well done"
+        @score = @word.length * @word.length
+
+        if session[:score].nil?
+          session[:score] = @score
+        else
+          session[:score] += @score
+        end
       else
         @message = "not an english word"
       end
     else
       @message = "not in the grid"
     end
-
   end
 end
