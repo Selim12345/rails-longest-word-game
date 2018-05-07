@@ -1,0 +1,15 @@
+<% @letters.each do |letter| %>
+  <%=letter %>
+<%end%>
+
+<div style="padding: 10px;">
+  <form action="score" method="post" class="form-inline">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %><div class="form-group mb-2">
+      <input class="form-control" type="text" name="word" placeholder="type anything you want !">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <input type="submit" value="score" class="btn btn-primary mb-2">
+    </div>
+  </form>
+</div>
